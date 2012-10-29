@@ -12,9 +12,10 @@
 			logging_str(LEVEL),LEVEL,INFO);
 
 /**
- * Predefined log levels. The log levels can be any int, the higher the
- * value the higher the priority. The levels in the enumeration are a
- * more verbose way of using the log levels.
+ * Predefined log levels. The log levels can be any int, 
+ * the higher the value the higher the priority. The levels 
+ * in the enumeration are a more verbose way of using the 
+ * log levels.
  */
 enum LogLevel {
 	FINEST=0,
@@ -27,9 +28,9 @@ enum LogLevel {
 };
 
 /**
- * This function converts a log level from the log level enumeration 
- * into a string. If the level is not part of the enumeration, it 
- * will have a special name.
+ * This function converts a log level from the log level 
+ * enumeration into a string. If the level is not part of 
+ * the enumeration, it will have a special name.
  */
 const char * logging_str(int level);
 
@@ -58,23 +59,25 @@ typedef struct _LOG {
 typedef void (*logging_function)(LOG *, int, char *);
 
 /**
- * Add a new handler to a log. If the LOG is NULL a new LOG will be 
- * returned if the handler was added otherwise NULL. If the LOG is not 
- * NULL the original pointer will be returned if the handler was not 
+ * Add a new handler to a log. If the LOG is NULL a new 
+ * LOG will be returned if the handler was added otherwise 
+ * NULL. If the LOG is not NULL the original pointer will 
+ * be returned if the handler was not 
  * added, otherwise a new address will be returned. 
  */
 LOG *logging_add_handler(LOG *, int, log_handler_function);
 
 /**
- * Removes the given handler from the log. This function may return 
- * NULL if no more handlers are available in the LOG. Nothing happens 
- * if the LOG is NULL.
+ * Removes the given handler from the log. 
+ * This function may return 
+ * NULL if no more handlers are available in the LOG. 
+ * Nothing happens if the LOG is NULL.
  */
 LOG *logging_remove_handler(LOG *log, log_handler_function);
 
 /**
- * Releases the log by removing all the handlers. Nothing happens if 
- * the LOG is NULL.
+ * Releases the log by removing all the handlers. 
+ * Nothing happens if the LOG is NULL.
  */
 void logging_release(LOG *);
 
@@ -90,8 +93,9 @@ void logging_dummy_funct(LOG *, int, char*);
 
 /**
  * A logging function that goes over all the log handlers and 
- * calls the handler functions if the log level for each function
- * is at most the log level passed to the logging function
+ * calls the handler functions if the log level for each 
+ * function is at most the log level passed to the logging 
+ * function
  */
 void logging_default_funct(LOG *, int, char*);
 

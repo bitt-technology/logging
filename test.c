@@ -11,7 +11,8 @@ LOG *log_=NULL;
 logging_function logger=logging_default_funct;
 
 void custom_logger_func(int level, char *message) {
-	printf("T - %s(%d) - %s\n",logging_str(level),level,message);
+	printf("T - %s(%d) - %s\n",
+			logging_str(level),level,message);
 }
 
 int main(void) {

@@ -34,7 +34,8 @@ LOG *logging_add_handler(LOG *log, int level,
 	return node;
 }
 
-LOG *logging_remove_handler(LOG *log, log_handler_function funct) {
+LOG *logging_remove_handler(LOG *log, 
+		log_handler_function funct) {
 	LOG *p, *d;
 	if(!log) {
 		return log;
@@ -65,9 +66,13 @@ void logging_release(LOG *log) {
 	}
 }
 
-void logging_dummy_funct(LOG *log, int level, char *message) {}
+void logging_dummy_funct(LOG *log, int level, 
+		char *message) {
 
-void logging_default_funct(LOG *log, int level, char *message) {
+}
+
+void logging_default_funct(LOG *log, int level, 
+		char *message) {
 	while(log) {
 		if(level>=log->level) {
 			log->funct(level, message);
