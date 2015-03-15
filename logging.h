@@ -12,6 +12,15 @@
 			logging_str(LEVEL),LEVEL,INFO);
 
 /**
+ * Simple debug like macro for logging a message to the
+ * given output file. It expects the FILE pointer, the log level, 
+ * and the string.
+ */
+#define FLOGGER(OUTSTREAM, LEVEL, INFO) \
+    fprintf(OUTSTREAM, "%s:%d - %s(%d) - %s\n", __FILE__,__LINE__,\
+            logging_str(LEVEL), LEVEL, INFO);
+
+/**
  * Predefined log levels. The log levels can be any int, 
  * the higher the value the higher the priority. The levels 
  * in the enumeration are a more verbose way of using the 
